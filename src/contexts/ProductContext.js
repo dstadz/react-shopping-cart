@@ -1,9 +1,18 @@
-import  React, {createContext} from 'react'
+import  { useState, createContext } from 'react'
+import data from '../data';
 
-class ProductContext extends React.Component {
-  state = {
-    
-  }
+export const ProductContext = createContext({
+
+})
+
+export const ProductProvider = () => {
+
+  const [products] = useState(data);
+	const [cart, setCart] = useState([]);
+
+	const addItem = item => {
+		// add the given item to the cart
+		setCart([...cart, {item}])
+	};
 }
 
-export default ProductContext
